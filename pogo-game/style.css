@@ -1,0 +1,9 @@
+.project {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+video {
+    width: 400px;
+}

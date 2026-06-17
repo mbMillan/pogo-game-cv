@@ -1,85 +1,120 @@
-<link rel="stylesheet" href="style.css">
-<section class="project">
-    <video muted loop controls>
-        <source src="clips/Idle.mp4">
-    </video>
+<!DOCTYPE html>
+<html lang="en">
 
-    <div class="project-text">
-        <h2>Pogo Bounce Mechanic</h2>
-        <p>
-            A custom movement component specifically made for a constantly-bouncing pogo stick. 
-            The original idea was about a platformer game where you don't have absolute control over the jump mechanic, 
-            
-        </p>
-    </div>
-</section>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
+</head>
 
-<section class="project">
-    <video muted loop controls>
-        <source src="clips/Walk 01.mp4">
-    </video>
+<body>
 
-    <div class="project-text">
-        <h2>Momentum-based movement</h2>
-        <p>
-            The whole movement system is momentum-based. 
-            Direction changes are slow and require thinking ahead of time.
-        </p>
-    </div>
-</section>
+    <section class="project">
+        <video autoplay muted loop controls>
+            <source src="clips/Idle.mp4">
+        </video>
 
-<section class="project">
-    <video muted loop controls>
-        <source src="clips/Sprint 01.mp4">
-    </video>
+        <div class="project-text">
+            <h2>Pogo Bounce Mechanic</h2>
+            <p>
+                A movement system built around constant bouncing. The player doesn't fully "jump" in a traditional way;
+                instead, movement is always part of a bounce cycle that you influence rather than directly control.
+            </p>
+        </div>
+    </section>
 
-    <div class="project-text">
-        <h2>Sprint</h2>
-        <p>
-            By holding down the Sprint button, the character starts sprinting. 
-            Movement speed and bounce frequency get faster while controls get tighter.
-        </p>
-    </div>
-</section>
+    <section class="project">
+        <video muted loop controls>
+            <source src="clips/Walk 01.mp4">
+        </video>
 
-<section class="project">
-    <video muted loop controls>
-        <source src="clips/Bash Bounce.mp4">
-    </video>
+        <div class="project-text">
+            <h2>Momentum-based movement</h2>
+            <p>
+                Movement keeps its momentum, direction changes are dependent on your speed and require thinking ahead of
+                time.
+            </p>
+        </div>
+    </section>
 
-    <div class="project-text">
-        <h2>The Stomp Mechanic</h2>
-        <p>
-            By pressing the (would be) jump button the character performs a stomp. 
-            This will force a stronger bounce as soon as the pogo touches the ground.             
-        </p>
-    </div>
-</section>
+    <section class="project">
+        <video muted loop controls>
+            <source src="clips/Sprint 01.mp4">
+        </video>
 
-<section class="project">
-    <video muted loop controls>
-        <source src="clips/Block Break.mp4">
-    </video>
+        <div class="project-text">
+            <h2>Sprint</h2>
+            <p>
+                Holding the sprint button increases movement speed and bounce frequency, but makes controls tighter and
+                less
+                forgiving.
+            </p>
+        </div>
+    </section>
 
-    <div class="project-text">
-        <h2>Unstable platforms</h2>
-        <p>
-            Platforms that can only sustain a limited amount of force before crumbling. 
-            In the example, the block falls (through the ground) after the player touches it three times.
-        </p>
-    </div>
-</section>
+    <section class="project">
+        <video muted loop controls>
+            <source src="clips/Bash Bounce.mp4">
+        </video>
 
-<section class="project">
-    <video muted loop controls>
-        <source src="clips/Slope.mp4">
-    </video>
+        <div class="project-text">
+            <h2>The Stomp Mechanic</h2>
+            <p>
+                Pressing the jump button triggers a ground stomp that will boost the next bounce when you hit the
+                ground.
+            </p>
+        </div>
+    </section>
 
-    <div class="project-text">
-        <h2>Bounce direction and slopes</h2>
-        <p>
-            The bounce direction takes into consideration the normal vector of the ground surface, 
-            this allows for the use of sloped and irregular ground for gameplay purposes and it lets me set a maximum "walkable" slope, when needed. 
-        </p>
-    </div>
-</section>
+    <section class="project">
+        <video muted loop controls>
+            <source src="clips/Block Break.mp4">
+        </video>
+
+        <div class="project-text">
+            <h2>Breakable platforms</h2>
+            <p>
+                Some platforms can only take a limited number of hits before breaking.
+                In this case, the block breaks after three impacts.
+            </p>
+        </div>
+    </section>
+
+    <section class="project">
+        <video muted loop controls>
+            <source src="clips/Slope.mp4">
+        </video>
+
+        <div class="project-text">
+            <h2>Slopes and bounce direction</h2>
+            <p>
+                Bounce direction follows the surface normal, so slopes and uneven ground affect movement. There's also a
+                max
+                slope angle for what counts as "walkable".
+            </p>
+        </div>
+    </section>
+    <script>
+        const videos = Array.from(document.querySelectorAll("video"));
+
+        function pauseOthers(current) {
+            videos.forEach(v => {
+                if (v !== current) v.pause();
+            });
+        }
+
+        videos.forEach(video => {
+            video.addEventListener("play", () => pauseOthers(video));
+        });
+
+        // optional: ensure only first starts active state
+        window.addEventListener("load", () => {
+            videos.forEach((v, i) => {
+                if (i !== 0) v.pause();
+            });
+        });
+    </script>
+</body>
+
+</html>

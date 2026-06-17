@@ -8,9 +8,18 @@
     border-radius: 12px;
     width: max-content;
 }
+
+.site-header {
+    text-align: left;
+    margin-bottom: 40px;    
+    margin-left: 40px;
+}
+
 .project-text {
-    width: 420px;        /* fixed readable column */
+    width: 420px;
+    /* fixed readable column */
     max-width: 420px;
+    margin-left: 40px;
 }
 
 video {
@@ -23,7 +32,7 @@ body {
     font-family: system-ui, Arial, sans-serif;
     line-height: 1.5;
     margin: 0;
-    padding: 80px;
+    padding: 10px 50px;
     background: #0f0f12;
     color: #eaeaea;
 }
@@ -42,6 +51,10 @@ h2 {
     margin: 0 0 10px 0;
 }
 
+.highlight {
+    color: #c6d9ff;
+}
+
 @media (max-width: 900px) {
     .project {
         flex-direction: column;
@@ -50,5 +63,6 @@ h2 {
     .project-text {
         width: 100%;
         max-width: 420px;
+        margin-left: 0px;
     }
 }
